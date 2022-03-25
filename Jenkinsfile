@@ -18,10 +18,17 @@ pipeline {
     stage('Build') {
     	steps {
 	    sh '''
+	    	cd /dockerbuildtest
 	    	npm install
 	        npx parcel build src/index.html
 	    '''
 	}
+    }
+    stage('Test') {
+    }
+    stage('Deploy') {
+    }
+    stage('Celebrate') {
     }
   }
 }
