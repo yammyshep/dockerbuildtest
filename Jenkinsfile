@@ -27,6 +27,7 @@ pipeline {
     stage('Test') {
       steps {
         sh '''
+	  cd /dockerbuildtest
 	  echo "lol no"
 	'''
       }
@@ -34,6 +35,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''
+	  cd /dockerbuildtest
           echo "lol no"
         '''
       } 
