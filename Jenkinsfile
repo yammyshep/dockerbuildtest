@@ -12,11 +12,6 @@ pipeline {
           '''
       }
     }
-    stage('checkout') {
-        steps {
-            checkout scm
-        }
-    }
     stage('clean') {
     	steps {
 	    sh 'ls /home && ls && pwd'
