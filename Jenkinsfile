@@ -5,6 +5,9 @@ pipeline {
 	args '-u root --privileged'
     }
   }
+  triggers {
+    githubPush()
+  }
   stages {
     stage('Clone') {
       	steps {
