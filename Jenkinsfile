@@ -19,12 +19,12 @@ pipeline {
     }
     stage('clean') {
     	steps {
-	    sh npm cache clean --force
+	    sh 'npm cache clean --force'
 	}
     }
     stage('install') {
     	steps {
-	    sh npm install
+	    sh 'npm install'
 	}
     }
     stage('build') {
