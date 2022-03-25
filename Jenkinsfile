@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    docker { image 'rustynode:latest' }
+    docker {
+    	image 'rustynode:latest'
+	args '-u root --privileged'
+    }
   }
   stages {
     stage('Build') {
