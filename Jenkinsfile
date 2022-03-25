@@ -17,6 +17,16 @@ pipeline {
             checkout scm
         }
     }
+    stage('clean') {
+    	steps {
+	    sh npm cache clean --force
+	}
+    }
+    stage('install') {
+    	steps {
+	    sh npm install
+	}
+    }
     stage('build') {
     	steps {
 	    sh '''
