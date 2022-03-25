@@ -1,14 +1,12 @@
 pipeline {
   agent {
-    docker { image 'rustynode:latest' }
+    docker { image 'node:16-alpine' }
   }
   stages {
     stage('verify-depends') {
       steps {
           sh '''
             node --version
-            cargo --version
-            git --version
 	    whoami
 	    ls -l /.npm
           '''
