@@ -9,6 +9,8 @@ pipeline {
             node --version
             cargo --version
             git --version
+	    whoami
+	    ls -l /.npm
           '''
       }
     }
