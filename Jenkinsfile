@@ -17,6 +17,13 @@ pipeline {
             checkout scm
         }
     }
+    stage('build') {
+    	steps {
+	    sh '''
+	        npx parcel build src/index.html
+	    '''
+	}
+    }
   }
 }
 
