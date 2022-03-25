@@ -20,6 +20,7 @@ pipeline {
     stage('clean') {
     	steps {
 	    sh 'npm cache clean --force'
+	    sh 'ls / && ls'
 	}
     }
     stage('install') {
