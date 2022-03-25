@@ -7,8 +7,6 @@ pipeline {
       steps {
           sh '''
             node --version
-	    whoami
-	    ls -l /.npm
           '''
       }
     }
