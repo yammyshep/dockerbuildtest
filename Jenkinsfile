@@ -25,10 +25,25 @@ pipeline {
 	}
     }
     stage('Test') {
+      steps {
+        sh '''
+	  echo "lol no"
+	'''
+      }
     }
     stage('Deploy') {
+      steps {
+        sh '''
+          echo "lol no"
+        '''
+      } 
     }
     stage('Celebrate') {
+      steps {
+        sh '''
+          echo "fuck you"
+        '''
+      }
     }
   }
 }
