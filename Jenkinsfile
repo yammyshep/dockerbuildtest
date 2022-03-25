@@ -3,16 +3,10 @@ pipeline {
     docker { image 'node:16-alpine' }
   }
   stages {
-    stage('verify-depends') {
-      steps {
-          sh '''
-            node --version
-          '''
-      }
-    }
-    stage('build') {
+    stage('Build') {
     	steps {
 	    sh '''
+	    	npm install
 	        npx parcel build src/index.html
 	    '''
 	}
