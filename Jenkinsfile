@@ -1,12 +1,15 @@
 pipeline {
   agent {
-    docker { image 'node:16-alpine' }
+    docker { image 'rustynode:latest' }
   }
   stages {
     stage('Build') {
     	steps {
 	    sh '''
+	    	ls -al node_modules
 	    	rm -rf node_modules/*.DELETE
+                ls -al node_modules
+		rm -rf node_modules
 	    	npm install
 	        npx parcel build src/index.html
 	    '''
