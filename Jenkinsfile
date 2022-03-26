@@ -40,7 +40,7 @@ pipeline {
         sh '''
 	  cd /dockerbuildtest
 	  tar -czf yshep.io_deploy.tar.gz dist
-          scp -o 'StrictHostKeyChecking no' -i /ssh/deploy_id_ecdsa yshep.io_deploy.tar.gz jenkins-deploy@10.0.16.4:/var/www/yshep.io/"
+          scp -o \"StrictHostKeyChecking no\" -i /ssh/deploy_id_ecdsa yshep.io_deploy.tar.gz jenkins-deploy@10.0.16.4:/var/www/yshep.io/"
         '''
 	echo 'Skipping deployment due to branch rules'
       }
