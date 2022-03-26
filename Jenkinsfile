@@ -37,17 +37,15 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-      	if (env.BRANCH_NAME == 'main') {
-          sh '''
-	    cd /dockerbuildtest
-	    tar -czf yshep.io_deploy.tar.gz dist
-	    #ssh -o "StrictHostKeyChecking no" -i /ssh/deploy_id_ecdsa jenkins-deploy@10.0.16.4 "rm -r /var/www/yshep.io/*"
-            scp -o "StrictHostKeyChecking no" -i /ssh/deploy_id_ecdsa yshep.io_deploy.tar.gz jenkins-deploy@10.0.16.4:/var/www/yshep.io/"
-          '''
-	} else {
-	  echo 'Skipping deployment due to branch rules'
-	}
-      } 
+        sh '''
+	  cd /dockerbuildtest
+	  tar -czf yshep.io_deploy.tar.gz dist
+	  #ssh -o "StrictHostKeyChecking no" -i /ssh/deploy_id_ecdsa jenkins-deploy@10.0.16.4 "rm -r /var/www/yshep.io/*"
+          scp -o "StrictHostKeyChecking no" -i /ssh/deploy_id_ecdsa yshep.io_deploy.tar.gz jenkins-deploy@10.0.16.4:/var/www/yshep.io/"
+        '''
+	echo 'Skipping deployment due to branch rules'
+      }
+      when { branch 'main' }
     }
     stage('Celebrate') {
       steps {
